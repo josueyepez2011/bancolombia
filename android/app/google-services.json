@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299269440224",
+    "project_id": "bancolombia-fake",
+    "storage_bucket": "bancolombia-fake.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299269440224:android:fc56337ded446de62d8685",
+        "android_client_info": {
+          "package_name": "com.example.bancolombia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANwOaML8Tt9AWD_aAcVm6u3LZZ_fmPDaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

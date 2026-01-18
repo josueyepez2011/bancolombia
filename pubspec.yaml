@@ -1,0 +1,160 @@
+name: bancolombia
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Firebase
+  firebase_core: ^3.8.1
+  firebase_auth: ^5.3.0
+  cloud_firestore: ^5.6.0
+  # Dependencias para manejo de JSON
+  json_annotation: ^4.8.1
+  # Para animaciones Lottie (archivos .json de animación)
+  lottie: ^3.1.2
+  # Para manejo de SVG
+  flutter_svg: ^2.0.10+1
+  # Para almacenamiento local
+  shared_preferences: ^2.2.2
+  # Para obtener información del dispositivo
+  device_info_plus: ^10.1.0
+  # Para generar UUID único
+  uuid: ^4.5.1
+  # Para capturar pantalla y compartir
+  screenshot: ^3.0.0
+  share_plus: ^10.0.0
+  path_provider: ^2.1.0
+  # Para seleccionar imágenes de la galería
+  image_picker: ^1.0.7
+  file_picker: ^8.0.0
+  # Para leer códigos QR de imágenes
+  mobile_scanner: ^5.1.1
+  # Para leer QR en web
+  zxing2: ^0.2.3
+  # Para procesar imágenes
+  image: ^4.2.0
+  # Para llamadas HTTP (API Gemini)
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  # Para generación de código JSON
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.9
+  # Para generar iconos de la app
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icons/pic-log-app.png"
+
+flutter:
+  uses-material-design: true
+  
+  # Assets definidos específicamente
+  assets:
+    # Archivos JSON de animaciones
+    - assets/an/loader-transfer.json
+    - assets/trazos/06_animate.json
+    - assets/trazos/06.json
+    - assets/trazos/trazo_splash.json
+    
+    # Archivos SVG
+    - assets/icons/bre-b-green.svg
+    - assets/icons/check.svg
+    - assets/icons/CIB.svg
+    - assets/icons/credit-card.svg
+    - assets/icons/escanear_qr.svg
+    - assets/icons/example_icon.svg
+    - assets/icons/help.svg
+    - assets/icons/home.svg
+    - assets/icons/ic_whatsapp.svg
+    - assets/icons/logout.svg
+    - assets/icons/pic_movements.svg
+    - assets/icons/pic_picture.svg
+    - assets/icons/pic-add.svg
+    - assets/icons/pic-bell.svg
+    - assets/icons/pic-camera.svg
+    - assets/icons/pic-cards.svg
+    - assets/icons/pic-error.svg
+    - assets/icons/pic-explore.svg
+    - assets/icons/pic-file-add.svg
+    - assets/icons/pic-hand-holding-box.svg
+    - assets/icons/pic-hand-holding-cash.svg
+    - assets/icons/pic-hand-holding-document.svg
+    - assets/icons/pic-hand-investment.svg
+    - assets/icons/pic-house.svg
+    - assets/icons/pic-id-fingerprint.svg
+    - assets/icons/pic-invoice.svg
+    - assets/icons/pic-key.svg
+    - assets/icons/pic-loading-arc.svg
+    - assets/icons/pic-lock.svg
+    - assets/icons/pic-phone.svg
+    - assets/icons/pic-qr-scan.svg
+    - assets/icons/pic-search.svg
+    - assets/icons/pic-send-money-from.svg
+    - assets/icons/pic-send-money.svg
+    - assets/icons/pic-share.svg
+    - assets/icons/pic-star.svg
+    - assets/icons/pic-todas.svg
+    - assets/icons/pic-user.svg
+    - assets/icons/pic-withdraw-cash.svg
+    - assets/icons/settings.svg
+    - assets/trazos/trazo_2.svg
+    - assets/trazos/trazo_home.svg
+    - assets/trazos/trazo_transfer.svg
+    - assets/trazos/trazo-comprobante.svg
+    - assets/images/brand-Bancolombia-primario-positivo.svg
+    - assets/logo_bc.svg
+    - assets/trazos/trazo_contrasena.svg
+    - assets/trazos/trazo_contrasena2.svg
+
+    
+    # Archivos PNG
+    - assets/icons/car.png
+    - assets/icons/generate_qr.png
+    - assets/icons/pic_apunt.png
+    - assets/icons/pic_transfer.svg
+    - assets/icons/pic-chevron-right.png
+    - assets/icons/your_qr.png
+    - assets/icons/pic-log-app.png
+    - assets/trazos/trazo_preview.png
+    - assets/icons/image.png
+
+  # Fuentes definidas específicamente
+  fonts:
+    - family: CibFontSansRegular
+      fonts:
+        - asset: assets/font/cibfontsans_regular.ttf
+    - family: CibFontSansBold
+      fonts:
+        - asset: assets/font/cibfontsans_bold.ttf
+    - family: OpenSansRegular
+      fonts:
+        - asset: assets/font/opensans_regular.ttf
+    - family: OpenSansSemibold
+      fonts:
+        - asset: assets/font/opensans_semibold.ttf
+    - family: OpenSansBold
+      fonts:
+        - asset: assets/font/opensans_bold.ttf
+    - family: RegularCustom
+      fonts:
+        - asset: assets/font/regular.ttf
+    - family: ReguMedium
+      fonts:
+        - asset: assets/font/regu_medium.ttf
+    - family: LightCustom
+      fonts:
+        - asset: assets/font/light.ttf
+
+
+         
