@@ -33,7 +33,7 @@ dependencies:
   image_picker: ^1.0.7
   file_picker: ^8.0.0
   # Para leer códigos QR de imágenes
-  mobile_scanner: ^5.1.1
+  mobile_scanner: ^5.3.0
   # Para leer QR en web
   zxing2: ^0.2.3
   # Para procesar imágenes
