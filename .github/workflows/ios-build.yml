@@ -5,29 +5,32 @@ on:
 
 jobs:
   build-ios:
-    runs-on: macOS-latest
+    runs-on: macOS-latest  # Usa macOS
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '3.19.0'
-    
-    - name: Install dependencies
-      run: |
-        flutter pub get
-        
-    - name: Build iOS (debug - sin firma)
-      run: |
-        # Saltar CocoaPods si hay errores
-        flutter build ios --debug --no-codesign || echo "Build continuará sin algunos paquetes"
-        
-    - name: Upload IPA
-      uses: actions/upload-artifact@v3
-      with:
-        name: app-debug
-        path: build/ios/iphoneos/
-        retention-days: 7
+      # 1. Descargar código
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      # 2. Configurar Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0'
+      
+      # 3. Obtener dependencias
+      - name: Get Flutter dependencies
+        run: flutter pub get
+      
+      # 4. Construir iOS (debug sin firmar)
+      - name: Build iOS debug
+        run: |
+          flutter build ios --debug --no-codesign
+      
+      # 5. Subir artefactos
+      - name: Upload iOS build
+        uses: actions/upload-artifact@v3
+        with:
+          name: ios-app-debug
+          path: build/ios/iphoneos/
+          retention-days: 5
