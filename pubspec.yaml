@@ -9,10 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # Firebase
-  firebase_core: ^3.8.1
-  firebase_auth: ^5.3.0
-  cloud_firestore: ^5.6.0
+  # Firebase (versiones compatibles con mobile_scanner 5.2.3)
+  firebase_core: 3.14.0
+  firebase_auth: 5.2.0
+  cloud_firestore: 5.4.0
   # Dependencias para manejo de JSON
   json_annotation: ^4.8.1
   # Para animaciones Lottie (archivos .json de animación)
@@ -32,8 +32,8 @@ dependencies:
   # Para seleccionar imágenes de la galería
   image_picker: ^1.0.7
   file_picker: ^8.0.0
-  # Para leer códigos QR de imágenes
-  mobile_scanner: ^5.3.0
+  # Para leer códigos QR de imágenes (VERSIÓN CORREGIDA)
+  mobile_scanner: 5.2.3
   # Para leer QR en web
   zxing2: ^0.2.3
   # Para procesar imágenes
@@ -55,6 +55,8 @@ flutter_launcher_icons:
   android: true
   ios: false
   image_path: "assets/icons/pic-log-app.png"
+
+
 
 flutter:
   uses-material-design: true
