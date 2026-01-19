@@ -3453,26 +3453,24 @@ class _CameraScannerScreenState extends State<_CameraScannerScreen>
               MobileScanner(
                 controller: _controller!,
                 onDetect: _onDetect,
-                errorBuilder: (context, error, child) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(
-                          Icons.error_outline,
-                          color: Colors.red,
-                          size: 64,
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          'Error: ${error.errorDetails?.message ?? error.toString()}',
-                          style: const TextStyle(color: Colors.white),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                errorBuilder: (context, error) => Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.error_outline,
+                        color: Colors.red,
+                        size: 64,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Error: ${error.errorDetails?.message ?? error.toString()}',
+                        style: const TextStyle(color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
               ),
             // Overlay con marco de escaneo
             CustomPaint(painter: _ScannerOverlayPainter(), child: Container()),
