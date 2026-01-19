@@ -33,3 +33,46 @@ workflows:
         notify:
           success: true
           failure: true
+
+  ios-release-workflow:
+    name: iOS Release Build (No Signing)
+    instance_type: mac_mini_m1
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter clean
+          flutter pub get
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios 
+          rm -rf Podfile.lock
+          rm -rf Pods/
+          pod install --repo-update
+      - name: Flutter analyze
+        script: flutter analyze
+      - name: Build iOS Release (No Code Signing)
+        script: |
+          flutter build ios --release --no-codesign
+      - name: Create IPA manually
+        script: |
+          mkdir -p build/ios/ipa
+          cd build/ios/iphoneos
+          mkdir Payload
+          cp -r Runner.app Payload/
+          zip -r ../ipa/bancolombia.ipa Payload/
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - build/ios/iphoneos/*.app
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - josueyepez0203@gmail.com
+        notify:
+          success: true
+          failure: true
