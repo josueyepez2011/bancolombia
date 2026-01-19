@@ -14,6 +14,7 @@ workflows:
         script: |
           flutter clean
           flutter pub get
+          flutter pub deps
       - name: Update CocoaPods repository
         script: |
           pod repo update

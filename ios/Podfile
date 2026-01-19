@@ -31,10 +31,6 @@ target 'Runner' do
   use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
-  
-  # Resolver conflicto de GoogleUtilities para mobile_scanner
-  pod 'GoogleUtilities', '7.13.3'
-  pod 'GoogleUtilities/UserDefaults', '7.13.3'
 end
 
 post_install do |installer|
