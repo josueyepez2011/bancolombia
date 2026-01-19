@@ -9,8 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # Firebase (paquete unificado moderno)
-  firebase: ^9.0.3
+  # Firebase (paquetes individuales para mejor compatibilidad)
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
   # Dependencias para manejo de JSON
   json_annotation: ^4.8.1
   # Para animaciones Lottie (archivos .json de animación)
@@ -37,7 +39,7 @@ dependencies:
   # Para procesar imágenes
   image: ^4.2.0
   # Para llamadas HTTP (API Gemini)
-  http: ^1.2.0
+  http: ^1.6.0
 
 dev_dependencies:
   flutter_test:
