@@ -14,19 +14,12 @@ workflows:
         script: |
           flutter clean
           flutter pub get
-          flutter pub deps
-      - name: Update CocoaPods repository
-        script: |
-          pod repo update
-      - name: Clean CocoaPods cache and dependencies
+      - name: Install CocoaPods dependencies
         script: |
           cd ios 
           rm -rf Podfile.lock
           rm -rf Pods/
-          pod cache clean --all
-      - name: Install CocoaPods dependencies
-        script: |
-          cd ios && pod install --repo-update --verbose
+          pod install --repo-update
       - name: Flutter analyze
         script: flutter analyze
       - name: Build iOS

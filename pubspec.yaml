@@ -9,10 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # Firebase (versiones actualizadas compatibles)
-  firebase_core: ^3.14.0
-  firebase_auth: ^5.3.0
-  cloud_firestore: ^5.4.0
+  # Firebase (paquete unificado moderno)
+  firebase: ^9.0.3
   # Dependencias para manejo de JSON
   json_annotation: ^4.8.1
   # Para animaciones Lottie (archivos .json de animación)
@@ -33,7 +31,7 @@ dependencies:
   image_picker: ^1.0.7
   file_picker: ^8.0.0
   # Para leer códigos QR de imágenes (VERSIÓN ACTUALIZADA)
-  mobile_scanner: ^5.2.9
+  mobile_scanner: ^7.1.4
   # Para leer QR en web
   zxing2: ^0.2.3
   # Para procesar imágenes
