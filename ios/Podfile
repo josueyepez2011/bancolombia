@@ -32,8 +32,9 @@ target 'Runner' do
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   
-  # Añade esto para resolver conflicto
-  pod 'GoogleUtilities/Environment', '8.1.0'
+  # Resolver conflicto de GoogleUtilities para mobile_scanner
+  pod 'GoogleUtilities', '7.13.3'
+  pod 'GoogleUtilities/UserDefaults', '7.13.3'
 end
 
 post_install do |installer|

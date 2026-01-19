@@ -2,19 +2,39 @@ workflows:
   ios-workflow:
     name: iOS Workflow
     instance_type: mac_mini_m1
+    max_build_duration: 120
     environment:
-      ios_signing:
-        provisioning_profiles:
-          - name: default_profile
+      flutter: stable
       xcode: latest
       cocoapods: default
     scripts:
+      - name: Set up code signing settings on Xcode project
+        script: xcode-project use-profiles
       - name: Get Flutter packages
-        script: flutter pub get
+        script: |
+          flutter clean
+          flutter pub get
+      - name: Update CocoaPods repository
+        script: |
+          pod repo update
+      - name: Clean CocoaPods cache and dependencies
+        script: |
+          cd ios 
+          rm -rf Podfile.lock
+          rm -rf Pods/
+          pod cache clean --all
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios && pod install --repo-update --verbose
+      - name: Flutter analyze
+        script: flutter analyze
       - name: Build iOS
-        script: flutter build ios --release --no-codesign
+        script: |
+          flutter build ios --release --no-codesign
     artifacts:
       - build/ios/iphoneos/*.app
+      - /tmp/xcodebuild_logs/*.log
+      - flutter_drive.log
     publishing:
       email:
         recipients:
