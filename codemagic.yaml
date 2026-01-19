@@ -1,30 +1,22 @@
 workflows:
-  ios-build-test:
-    name: iOS Build Test (No Signing)
-    instance_type: mac_mini_m1
+  android-workflow:
+    name: Android Build
+    instance_type: linux_x2
     max_build_duration: 60
     environment:
       flutter: stable
-      xcode: latest
-      cocoapods: default
     scripts:
       - name: Get Flutter packages
         script: |
           flutter clean
           flutter pub get
-      - name: Install CocoaPods dependencies
-        script: |
-          cd ios 
-          rm -rf Podfile.lock
-          rm -rf Pods/
-          pod install --repo-update
       - name: Flutter analyze
         script: flutter analyze
-      - name: Test iOS compilation (no actual build)
+      - name: Build Android APK
         script: |
-          flutter build ios --release --no-codesign --debug-info-dir-path=build/ios/dSYMs
+          flutter build apk --release
     artifacts:
-      - /tmp/xcodebuild_logs/*.log
+      - build/app/outputs/flutter-apk/*.apk
       - flutter_drive.log
     publishing:
       email:

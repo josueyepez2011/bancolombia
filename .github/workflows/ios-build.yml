@@ -1,22 +1,44 @@
 name: iOS Build
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
-    runs-on: macOS-latest
+  build-ios:
+    runs-on: macos-latest
+    
     steps:
-    - uses: actions/checkout@v3
-    - uses: subosito/flutter-action@v2
-    - run: pod repo update
-    - run: |
-        flutter pub get
-        cd ios
-        pod install --repo-update
-        cd ..
-        flutter build ios --debug --no-codesign
-    - uses: actions/upload-artifact@v4
+    - uses: actions/checkout@v4
+    
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
       with:
-        name: ios-app
-        path: build/ios/iphoneos/
+        flutter-version: '3.24.0'
+        channel: 'stable'
+    
+    - name: Install dependencies
+      run: flutter pub get
+    
+    - name: Analyze code
+      run: flutter analyze
+    
+    - name: Run tests
+      run: flutter test
+    
+    - name: Setup iOS
+      run: |
+        cd ios
+        pod install
+    
+    - name: Build iOS (no signing)
+      run: |
+        flutter build ios --release --no-codesign
+    
+    - name: Upload iOS build
+      uses: actions/upload-artifact@v4
+      with:
+        name: ios-build
+        path: build/ios/iphoneos/Runner.app
