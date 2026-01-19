@@ -1,0 +1,24 @@
+workflows:
+  ios-workflow:
+    name: iOS Workflow
+    instance_type: mac_mini_m1
+    environment:
+      ios_signing:
+        provisioning_profiles:
+          - name: default_profile
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get Flutter packages
+        script: flutter pub get
+      - name: Build iOS
+        script: flutter build ios --release --no-codesign
+    artifacts:
+      - build/ios/iphoneos/*.app
+    publishing:
+      email:
+        recipients:
+          - josueyepez0203@gmail.com
+        notify:
+          success: true
+          failure: true

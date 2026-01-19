@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "bancolombia",
+    "slug": "bancolombia",
+    "version": "0.1.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTabletMode": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icons/pic-log-app.png",
+        "backgroundColor": "#ffffff"
+      }
+    }
+  }
+}
