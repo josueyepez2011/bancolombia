@@ -1,22 +1,30 @@
 workflows:
-  android-workflow:
-    name: Android Build
-    instance_type: linux_x2
+  ios-simulator-workflow:
+    name: iOS Simulator Build
+    instance_type: mac_mini_m1
     max_build_duration: 60
     environment:
       flutter: stable
+      xcode: latest
+      cocoapods: default
     scripts:
       - name: Get Flutter packages
         script: |
           flutter clean
           flutter pub get
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios 
+          rm -rf Podfile.lock
+          rm -rf Pods/
+          pod install --repo-update
       - name: Flutter analyze
         script: flutter analyze
-      - name: Build Android APK
+      - name: Build iOS for Simulator
         script: |
-          flutter build apk --release
+          flutter build ios --simulator --debug
     artifacts:
-      - build/app/outputs/flutter-apk/*.apk
+      - build/ios/iphonesimulator/*.app
       - flutter_drive.log
     publishing:
       email:
