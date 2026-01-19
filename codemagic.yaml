@@ -1,15 +1,12 @@
 workflows:
-  ios-workflow:
-    name: iOS Workflow
+  ios-build-test:
+    name: iOS Build Test (No Signing)
     instance_type: mac_mini_m1
-    max_build_duration: 120
+    max_build_duration: 60
     environment:
       flutter: stable
       xcode: latest
       cocoapods: default
-      ios_signing:
-        distribution_type: development
-        bundle_identifier: com.bancolombia.app
     scripts:
       - name: Get Flutter packages
         script: |
@@ -23,11 +20,10 @@ workflows:
           pod install --repo-update
       - name: Flutter analyze
         script: flutter analyze
-      - name: Build iOS without code signing
+      - name: Test iOS compilation (no actual build)
         script: |
-          flutter build ios --release --no-codesign --simulator
+          flutter build ios --release --no-codesign --debug-info-dir-path=build/ios/dSYMs
     artifacts:
-      - build/ios/iphonesimulator/*.app
       - /tmp/xcodebuild_logs/*.log
       - flutter_drive.log
     publishing:
